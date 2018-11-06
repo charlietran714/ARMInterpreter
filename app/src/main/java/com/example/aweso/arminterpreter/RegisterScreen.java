@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.OutputStreamWriter;
+
 public class RegisterScreen extends AppCompatActivity
 {
     private EditText[] theRegisterETs = new EditText[31];
+    public static String savedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,5 +54,10 @@ public class RegisterScreen extends AppCompatActivity
     {
         //globally save the current values of all the registers such that those values are
         //accessible in MainActivity.  You should do something in MainActivity to prove this.
+        for(int i = 0; i < theRegisterETs.length; i++)
+        {
+            savedText = savedText + " " + theRegisterETs[i].getText().toString();
+        }
+        System.out.println(savedText);
     }
 }
